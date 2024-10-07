@@ -1,16 +1,21 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { RouterModule } from '@angular/router';
 
-import { AtualizacaoComponent, CadastroComponent, ListagemComponent } from './components';
+import { AtualizacaoComponent, CadastroComponent, ListagemComponent, AdminComponent } from './components';
 
 @NgModule({
   declarations: [
     ListagemComponent,
     CadastroComponent,
-    AtualizacaoComponent
+    AtualizacaoComponent,
+    AdminComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
+    FlexLayoutModule
   ]
 })
 export class AdminModule { }

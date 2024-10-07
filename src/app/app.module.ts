@@ -6,7 +6,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AdminModule } from './admin';
+import { AdminModule, AdminRoutingModule } from './admin';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {
@@ -41,6 +41,7 @@ import { FuncionarioModule, FuncionarioRoutingModule } from './funcionario';
     FuncionarioModule,
     FuncionarioRoutingModule,
     AdminModule,
+    AdminRoutingModule,
 
     AppRoutingModule
   ],
