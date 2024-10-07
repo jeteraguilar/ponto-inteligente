@@ -16,6 +16,7 @@ import { RouterModule } from '@angular/router';
 
 import { HttpUtilService, LancamentoService, PtBrMatPaginatorIntl } from '../shared';
 import { FuncionarioComponent, LancamentoComponent, ListagemComponent } from './components';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { FuncionarioComponent, LancamentoComponent, ListagemComponent } from './
     MatPaginatorModule,
     MatListModule,
     MatCardModule,
-    MatSortModule
+    MatSortModule,
+    SharedModule
   ],
   providers: [
     HttpUtilService,
