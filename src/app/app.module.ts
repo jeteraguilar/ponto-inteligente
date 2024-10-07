@@ -6,6 +6,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { AdminModule } from './admin';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {
@@ -16,8 +17,7 @@ import {
   LoginModule,
   LoginRoutingModule,
 } from './autenticacao';
-
-import {  FuncionarioModule, FuncionarioRoutingModule} from './funcionario';
+import { FuncionarioModule, FuncionarioRoutingModule } from './funcionario';
 
 
 
@@ -40,6 +40,7 @@ import {  FuncionarioModule, FuncionarioRoutingModule} from './funcionario';
     CadastroPfRoutingModule,
     FuncionarioModule,
     FuncionarioRoutingModule,
+    AdminModule,
 
     AppRoutingModule
   ],
