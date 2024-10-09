@@ -22,21 +22,13 @@ import { HttpUtilService, LancamentoService, PtBrMatPaginatorIntl } from '../sha
 import { SharedModule } from '../shared/shared.module';
 import { AdminComponent, AtualizacaoComponent, CadastroComponent, ListagemComponent } from './components';
 
-
 @NgModule({
-  declarations: [
-    ListagemComponent,
-    CadastroComponent,
-    AtualizacaoComponent,
-    AdminComponent
-  ],
   imports: [
     CommonModule,
     RouterModule,
     FlexLayoutModule,
     ReactiveFormsModule,
     FormsModule,
-    SharedModule,
     MatInputModule,
     MatButtonModule,
     MatListModule,
@@ -50,14 +42,21 @@ import { AdminComponent, AtualizacaoComponent, CadastroComponent, ListagemCompon
     MatNativeDateModule,
     MatDialogModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    SharedModule
+  ],
+  declarations: [
+  	ListagemComponent,
+  	CadastroComponent,
+  	AtualizacaoComponent,
+    AdminComponent
   ],
   providers: [
     LancamentoService,
     HttpUtilService,
     MatPaginatorIntl,
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
-    { provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl}
-  ]
+    { provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl }
+  ],
 })
 export class AdminModule { }
