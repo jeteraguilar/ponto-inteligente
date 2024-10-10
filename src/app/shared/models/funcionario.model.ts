@@ -1,7 +1,6 @@
 import { Lancamento } from './lancamento.model';
 
 export class Funcionario {
-
 	constructor(public nome: string,
 				public email: string,
 				public cpf: string,
@@ -13,3 +12,4 @@ export class Funcionario {
 				public id?: string) {}
 
 }
+

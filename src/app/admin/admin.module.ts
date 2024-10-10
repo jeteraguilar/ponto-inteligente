@@ -1,27 +1,26 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatListModule } from '@angular/material/list';
-import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatSelectModule } from '@angular/material/select';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatSortModule } from '@angular/material/sort';
-import { MatTableModule } from '@angular/material/table';
-import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
 
-import { HttpUtilService, LancamentoService, PtBrMatPaginatorIntl } from '../shared';
+import { AtualizacaoComponent, CadastroComponent, ListagemComponent, AdminComponent } from './components';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 import { SharedModule } from '../shared/shared.module';
-import { AdminComponent, AtualizacaoComponent, CadastroComponent, ListagemComponent } from './components';
-
+import { FuncionarioService, HttpUtilService, LancamentoService, PtBrMatPaginatorIntl } from '../shared';
 
 @NgModule({
   declarations: [
@@ -36,7 +35,6 @@ import { AdminComponent, AtualizacaoComponent, CadastroComponent, ListagemCompon
     FlexLayoutModule,
     ReactiveFormsModule,
     FormsModule,
-    SharedModule,
     MatInputModule,
     MatButtonModule,
     MatListModule,
@@ -50,14 +48,17 @@ import { AdminComponent, AtualizacaoComponent, CadastroComponent, ListagemCompon
     MatNativeDateModule,
     MatDialogModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    SharedModule
   ],
   providers: [
     LancamentoService,
     HttpUtilService,
     MatPaginatorIntl,
+    FuncionarioService,
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
-    { provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl}
-  ]
+    { provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl },
+
+  ],
 })
 export class AdminModule { }
