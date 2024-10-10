@@ -38,8 +38,8 @@ export class ListagemComponent implements OnInit {
     private httpUtil: HttpUtilService,
     private snackBar: MatSnackBar,
     private fb: FormBuilder,
-    private funcionarioService: FuncionarioService
-    /*private dialog: MatDialog */
+    private funcionarioService: FuncionarioService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -115,10 +115,6 @@ export class ListagemComponent implements OnInit {
       );
   }
 
-  remover(lancamentoId: string) {
-    alert(lancamentoId);
-  }
-
   paginar(pageEvent: PageEvent) {
     this.pagina = pageEvent.pageIndex;
     this.exibirLancamentos();
@@ -133,4 +129,48 @@ export class ListagemComponent implements OnInit {
     }
     this.exibirLancamentos();
   }
+
+  removerDialog(lancamentoId: string) {
+    const dialog = this.dialog.open(ConfirmarDialog, {});
+    dialog.afterClosed().subscribe(remover => {
+      if (remover) {
+        this.remover(lancamentoId);
+      }
+    });
+  }
+
+  remover(lancamentoId: string) {
+    this.lancamentoService.remover(lancamentoId)
+      .subscribe(
+        data => {
+          const msg: string = "Lançamento removido com sucesso!";
+          this.snackBar.open(msg, "Sucesso", { duration: 5000 });
+          this.exibirLancamentos();
+        },
+        err => {
+          let msg: string = "Tente novamente em instantes.";
+          if (err.status == 400) {
+            msg = err.error.errors.join(' ');
+          }
+          this.snackBar.open(msg, "Erro", { duration: 5000 });
+        }
+      );
+  }
+}
+@Component({
+  selector: 'confirmar-dialog',
+  template: `
+    <h1 mat-dialog-title>Deseja realmente remover o lançamento?</h1>
+    <div mat-dialog-actions>
+      <button mat-button [mat-dialog-close]="false" tabindex="-1">
+        Não
+      </button>
+      <button mat-button [mat-dialog-close]="true" tabindex="2">
+        Sim
+      </button>
+    </div>
+  `,
+})
+export class ConfirmarDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
 }

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 
-import { AtualizacaoComponent, CadastroComponent, ListagemComponent, AdminComponent } from './components';
+import { AtualizacaoComponent, CadastroComponent, ListagemComponent, AdminComponent, ConfirmarDialog } from './components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -27,7 +27,8 @@ import { FuncionarioService, HttpUtilService, LancamentoService, PtBrMatPaginato
     ListagemComponent,
     CadastroComponent,
     AtualizacaoComponent,
-    AdminComponent
+    AdminComponent,
+    ConfirmarDialog
   ],
   imports: [
     CommonModule,
@@ -57,8 +58,7 @@ import { FuncionarioService, HttpUtilService, LancamentoService, PtBrMatPaginato
     MatPaginatorIntl,
     FuncionarioService,
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
-    { provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl },
-
+    { provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl }
   ],
 })
 export class AdminModule { }
