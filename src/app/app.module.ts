@@ -19,8 +19,6 @@ import {
 } from './autenticacao';
 import { FuncionarioModule, FuncionarioRoutingModule } from './funcionario';
 
-
-
 @NgModule({
   declarations: [
     AppComponent
@@ -28,12 +26,11 @@ import { FuncionarioModule, FuncionarioRoutingModule } from './funcionario';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    FormsModule,
-    LoginRoutingModule,
-    LoginModule,
     MatToolbarModule,
     MatIconModule,
     FlexLayoutModule,
+    LoginModule,
+    LoginRoutingModule,
     CadastroPjModule,
     CadastroPjRoutingModule,
     CadastroPfModule,
@@ -48,4 +45,4 @@ import { FuncionarioModule, FuncionarioRoutingModule } from './funcionario';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
