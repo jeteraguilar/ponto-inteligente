@@ -21,6 +21,7 @@ import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginato
 import { MatSortModule } from '@angular/material/sort';
 import { SharedModule } from '../shared/shared.module';
 import { FuncionarioService, HttpUtilService, LancamentoService, PtBrMatPaginatorIntl } from '../shared';
+import { AdminGuard } from './services';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { FuncionarioService, HttpUtilService, LancamentoService, PtBrMatPaginato
     MatPaginatorIntl,
     FuncionarioService,
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
-    { provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl }
+    { provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl },
+    AdminGuard
   ],
 })
 export class AdminModule { }
