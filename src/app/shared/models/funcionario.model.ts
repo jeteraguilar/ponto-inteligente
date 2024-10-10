@@ -12,3 +12,4 @@ export class Funcionario {
 				public id?: string) {}
 
 }
+
